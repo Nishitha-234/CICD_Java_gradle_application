@@ -4,8 +4,11 @@ pipeline{
         VERSION = "${env.BUILD_ID}"
     }
     stages{
-        stage("sonar quality check"){
+        stage("git"){
             checkout([$class: 'GitSCM', branches: [[name: '*/devops']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Nishitha-234/CICD_Java_gradle_application.git']]])
+        }
+        stage("sonar quality check"){
+    
             agent {
                 docker {
                     image 'openjdk:11'
