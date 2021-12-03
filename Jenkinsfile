@@ -6,7 +6,7 @@ node{
     stages{
         stage("git"){
             steps{
-              
+              checkout([$class: 'GitSCM', branches: [[name: '*/devops']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Nishitha-234/CICD_Java_gradle_application.git']]])
         }
         }
         stage("sonar quality check"){
